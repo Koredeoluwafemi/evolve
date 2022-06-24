@@ -4,6 +4,7 @@ import (
 	"evolve/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 )
 
 var DB *gorm.DB
@@ -75,6 +76,6 @@ func Start() {
 	}), &gorm.Config{})
 
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 }

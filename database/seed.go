@@ -10,7 +10,7 @@ import (
 func seed(db *gorm.DB) {
 
 	//user
-	userSeeder(db)
+	//userSeeder(db)
 
 }
 

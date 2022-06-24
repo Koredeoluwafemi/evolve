@@ -58,18 +58,6 @@ func Users(c *fiber.Ctx) error {
 		dbCount int
 	)
 
-	if c.Query("email") != "" {
-		dbCount = user.GetEmailCount(db, c.Query("email"))
-	}
-
-	//if c.Query("dr") != "" {
-	//dbCount = user.GetDateRangeCount(db)
-	//}
-
-	if c.Query("email") == "" && c.Query("dr") == "" {
-		dbCount = user.GetCount(db)
-	}
-
 	pageSize := 2
 
 	if c.Query("pagesize") != "" {
@@ -82,6 +70,14 @@ func Users(c *fiber.Ctx) error {
 			}
 			return c.Status(400).JSON(output)
 		}
+	}
+
+	if c.Query("email") != "" {
+		dbCount = user.GetEmailCount(db, c.Query("email"))
+	}
+
+	if c.Query("email") == "" && c.Query("pagesize") == "" {
+		dbCount = user.GetCount(db)
 	}
 
 	//get number of pages

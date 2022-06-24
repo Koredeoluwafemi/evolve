@@ -73,7 +73,7 @@ func Users(c *fiber.Ctx) error {
 	pageSize := 2
 
 	if c.Query("pagesize") != "" {
-		pageSize, err = strconv.Atoi(c.Query("pageSize"))
+		pageSize, err = strconv.Atoi(c.Query("pagesize"))
 		if err != nil {
 			output := fiber.Map{
 				"status":  false,

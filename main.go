@@ -11,42 +11,8 @@ import (
 	"strconv"
 )
 
-//func GetRoot() string {
-//	//get current directory
-//	path, err := os.Getwd()
-//
-//	if err != nil {
-//		//log.Println(err)
-//	}
-//
-//	resourcesPath := ""
-//
-//	switch config.App.ENV {
-//
-//	case "production":
-//		resourcesPath = "/var/www/kyc/resources"
-//	case "stage":
-//		resourcesPath = "/var/www/kycstage/resources"
-//	default:
-//		resourcesPath = path + "/resources"
-//
-//	}
-//
-//	return resourcesPath
-//}
-
 func main() {
 
-	//get root directory
-	//resourcesPath := GetRoot()
-
-	// See examples below to load templates from embedded files
-	//engine := html.New(resourcesPath, ".html")
-
-	// Reload the templates on each render, good for development
-	//engine.Reload(true) // Optional. Default: false
-
-	//engine.Layout("content")
 	app := fiber.New()
 
 	//initialize database
@@ -130,7 +96,6 @@ func Users(c *fiber.Ctx) error {
 	if c.Query("email") != "" {
 		getUsers.Where("email = ?", c.Query("email"))
 	}
-	//getUsers.Where("broker_id = ?", brokerID)
 	getUsers.Order("id asc")
 	rows := getUsers.Find(&users)
 	if rows.RowsAffected == 0 {

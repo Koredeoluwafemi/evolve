@@ -88,7 +88,7 @@ func Users(c *fiber.Ctx) error {
 	pagesNumber := int(math.Ceil(float64(dbCount) / float64(pageSize)))
 
 	for i := 0; i < pagesNumber; i++ {
-		link.Link = config.App.Url + "users?page=" + strconv.Itoa(i+1)
+		link.Link = "users?page=" + strconv.Itoa(i+1)
 		links = append(links, link)
 	}
 

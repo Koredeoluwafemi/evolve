@@ -67,7 +67,7 @@ func getHost() string {
 
 func Start() {
 
-	dsn := "host=" + getHost() + " user=" + getUsername() + " password=" + getPassword() + " dbname=" + getDB() + " port=" + getPort() + " sslmode=preferred TimeZone=Africa/Lagos"
+	dsn := "host=" + getHost() + " user=" + getUsername() + " password=" + getPassword() + " dbname=" + getDB() + " port=" + getPort() + " sslmode=disable TimeZone=Africa/Lagos"
 
 	var err error
 	DB, err = gorm.Open(postgres.New(postgres.Config{

@@ -55,12 +55,6 @@ func main() {
 
 	app.Get("users", Users)
 
-	//app.Static("/", resourcesPath)
-
-	//if err := app.Listen(":" + config.App.Port); err != nil {
-	//	panic(err)
-	//}
-
 	port := config.App.Port
 
 	if config.App.ENV == config.Environment.Stage {
@@ -112,7 +106,7 @@ func Users(c *fiber.Ctx) error {
 
 	pageSize := 2
 
-	if c.Query("pageSize") != "" {
+	if c.Query("pagesize") != "" {
 		pageSize, err = strconv.Atoi(c.Query("pageSize"))
 		if err != nil {
 			output := fiber.Map{

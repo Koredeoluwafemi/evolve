@@ -76,9 +76,9 @@ func Users(c *fiber.Ctx) error {
 		dbCount = user.GetEmailCount(db, c.Query("email"))
 	}
 
-	if c.Query("email") == "" && c.Query("pagesize") == "" {
-		dbCount = user.GetCount(db)
-	}
+	//if c.Query("email") == "" && c.Query("pagesize") == "" {
+	dbCount = user.GetCount(db)
+	//}
 
 	//get number of pages
 	pagesNumber := int(math.Ceil(float64(dbCount) / float64(pageSize)))

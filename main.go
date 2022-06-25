@@ -47,6 +47,7 @@ func Users(c *fiber.Ctx) error {
 		Email     string `json:"email"`
 		Phone     string `json:"phone"`
 		Address   string `json:"address"`
+		CreatedAt string `json:"created_at"`
 	}
 
 	var (
@@ -115,6 +116,7 @@ func Users(c *fiber.Ctx) error {
 			Email:     item.Email,
 			Address:   item.Address,
 			Phone:     item.Phone,
+			CreatedAt: item.CreatedAt.Format("2006-01-02"),
 		}
 	}
 

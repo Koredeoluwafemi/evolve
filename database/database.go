@@ -21,7 +21,7 @@ const (
 	ProdUsername     = "autktogywftngg"
 	ProdPassword     = "b7968e3676fc48b20bbda1716b6f65fe2931845690a7420445d1b5be8ca10c80"
 	ProdPort         = "5432"
-	ProdHost         = "ec2-99-80-170-190.eu-west-1.compute.amazonaws.com"
+	ProdHost         = ""
 )
 
 func getDB() string {
